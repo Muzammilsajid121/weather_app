@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
+import 'package:weather_app/Functions/date_time_func.dart';
+import 'package:weather_app/Services/weather_api_services.dart';
 
 class WeatherScreen extends StatefulWidget {
   const WeatherScreen({super.key});
@@ -9,12 +10,18 @@ class WeatherScreen extends StatefulWidget {
 }
 
 class _WeatherScreenState extends State<WeatherScreen> {
+  //
+  WeatherApiServices weatherApiServices = WeatherApiServices();
+  final Functions function = Functions();
+
+  //
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.sizeOf(context).height*1;
     final width = MediaQuery.sizeOf(context).width*1;
 
     return  Scaffold(
+      
       body: Container(
         decoration:const  BoxDecoration(
           image: DecorationImage(image: AssetImage('assets/bg1.jpg'), fit: BoxFit.cover
@@ -24,13 +31,28 @@ class _WeatherScreenState extends State<WeatherScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-          //  SizedBox(height: height*0.002,),
+
+              //  SizedBox(height: height*0.002,),
              Text('Today',style: Theme.of(context).textTheme.bodyLarge,),
-             Text('January 5, wednesday',style: Theme.of(context).textTheme.bodyMedium,),
+                          Text('Date',style: Theme.of(context).textTheme.bodyLarge,),
+
+             
              SizedBox(height: height*0.02,),
         
-           //Round Container
-           Container(
+              //Future Builder
+
+              
+            FutureBuilder(
+              future: weatherApiServices.fetchWorldWeatherApi(), 
+              builder: (context, snapshot){
+                if(snapshot.connectionState == ConnectionState.waiting){
+                  return const  Text("Loading");
+                }
+                else{
+
+
+                  //Round Container
+                  return Container(
             height: height*0.3,
             width: width*0.3,
             decoration: const  BoxDecoration(
@@ -51,19 +73,61 @@ class _WeatherScreenState extends State<WeatherScreen> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             const  Icon(Icons.sunny),
-            Text("24* C" ,style: Theme.of(context).textTheme.titleMedium),
-            Text("Rainy" ,style: Theme.of(context).textTheme.bodyLarge),
+  Text(weatherApiServices.current['temp_c'].toString() + " c°" ,style: Theme.of(context).textTheme.titleMedium),
+  Text(weatherApiServices.current['condition']['text'].toString(),style: Theme.of(context).textTheme.bodyMedium),
+Text(function.formatApiDate(weatherApiServices.location['localtime'].toString()),style: Theme.of(context).textTheme.bodySmall,),
+
+  
           ],
         ),
             ),
           
-           ),
-         SizedBox(height: height*0.1,),
+           );
+                }
+              }),
+
+
+
+
+
         
+         
+         SizedBox(height: height*0.1,),
+         //
+
+        //  FutureBuilder<WeatherModal>(
+        //   future: weatherApiServices.fetchWorldWeatherApi(),
+        //    builder: (context, AsyncSnapshot<WeatherModal>snapshot){
+            
+        //     if(!snapshot.hasData){
+        //       return Text('loading');
+        //     }
+        //     else{
+        //             List<Location>? locations = snapshot.data?.location;
+
+        //       return Expanded(
+        //         child: ListView.builder(
+        //           itemCount: locations!.length,
+        //           itemBuilder: (context, index){
+        //             return Card(
+        //               child: Column(
+        //                 children: [
+        //                   Text(snapshot.data!.location!.name.toString())
+        //                 ],
+        //               ),
+        //             );
+        //           },
+        //           ),
+        //       );
+        //     }
+
+        //  }),
+
+           //
         
             //ListViewbuilder Containers
             SizedBox(
-        height: height*0.21,
+        height: height*0.20,
         child: ListView.builder(
           scrollDirection: Axis.horizontal,
           itemCount: 8,
@@ -72,7 +136,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
               padding: const EdgeInsets.symmetric(horizontal:6.0),
               child: Container(
                 // height: height*0.01, //this height not working
-                width: width*0.15,
+                width: width*0.20,
               
                 decoration:const  BoxDecoration(
                   color: Color(0xffECF3FE),
@@ -93,6 +157,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
                      SizedBox(height: height*0.01,),
                     Text("25* C",style: Theme.of(context).textTheme.bodyMedium),
                     SizedBox(height: height*0.01,),
+                    Text("Monday", style: Theme.of(context).textTheme.bodySmall),
                     Text("8 am", style: Theme.of(context).textTheme.bodySmall),
                   ],
                 ),
@@ -106,6 +171,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
           ],
         ),
       ),
+      
     );
   }
 }

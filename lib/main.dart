@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:weather_app/CarouselScreens/one_carousel.dart';
 import 'package:weather_app/UI/splash_screen.dart';
 import 'package:weather_app/UI/weather_main_screen.dart';
 
