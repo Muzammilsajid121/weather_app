@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
 
-import 'package:weather_app/UI/weather_main_screen.dart';
+import 'package:weather_app/VIEW/weather_main_screen.dart';
 
 
 

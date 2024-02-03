@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:weather_app/CarouselScreens/one_carousel.dart';
-import 'package:weather_app/UI/splash_screen.dart';
-import 'package:weather_app/UI/weather_main_screen.dart';
+import 'package:weather_app/VIEW/OnBoarding%20Screens/onboarding_main.dart';
+import 'package:weather_app/VIEW/splash_screen.dart';
+import 'package:weather_app/VIEW/weather_main_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -50,7 +50,7 @@ class MyApp extends StatelessWidget {
 
         //
       ),
-      home: const WeatherScreen(),
+      home:  (OnBoardingScreen()),
     );
   }
 }
