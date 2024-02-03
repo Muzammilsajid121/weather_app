@@ -6,16 +6,28 @@ class IntroScreen3 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
   final height = MediaQuery.sizeOf(context).height *1;
-    return  Scaffold(
-   backgroundColor: Colors.green,
+   return  Scaffold(
+      backgroundColor: Color(0xfff3d3df),
+      
+      body:Container(
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('assets/bgbg.jpg'),
+            fit: BoxFit.cover,
+          ),
+        ),
+        child: Column(mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+              Center(child: Image.asset("assets/rain.png",height: height*0.3,width: height*0.4, )),
 
-      body:Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Center(child: Image.asset("assets/temperature.png",height: height*0.3, width: height*0.3, ))
+              Text("Realtime Weather",style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 50),),
 
-        ],
+              Text("Latest weather updates right into your hands",style: Theme.of(context).textTheme.bodyLarge,)
+          ],
+        ),
       ),
+      
     );
   }
 }
+

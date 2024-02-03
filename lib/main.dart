@@ -42,6 +42,8 @@ class MyApp extends StatelessWidget {
             bodyLarge: GoogleFonts.aBeeZee(fontSize: 19,  fontWeight: FontWeight.w800, color: Colors.black),
             // //
             titleMedium: GoogleFonts.montserrat(fontSize: 25, color: Colors.black , fontWeight: FontWeight.bold),
+            titleLarge: GoogleFonts.montserrat(fontSize: 38, color: Colors.black , fontWeight: FontWeight.bold),
+
 
         ),
           appBarTheme: const  AppBarTheme(
@@ -50,7 +52,7 @@ class MyApp extends StatelessWidget {
 
         //
       ),
-      home:  (OnBoardingScreen()),
+      home:  (WeatherScreen()),
     );
   }
 }
