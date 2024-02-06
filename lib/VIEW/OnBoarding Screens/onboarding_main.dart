@@ -40,7 +40,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
         ],
       ),
       Container(
-        alignment: const  Alignment(0, 0.7),
+        alignment: const  Alignment(0, 0.8),
 
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -56,7 +56,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
             //Indicators
             SmoothPageIndicator(
               effect: const JumpingDotEffect(
-                verticalOffset: 5, dotColor: Colors.blue, activeDotColor: Colors.yellow),
+                verticalOffset: 20, dotColor: Colors.blue, activeDotColor: Colors.yellow),
               controller: controllers, 
               count: 3),
 
@@ -71,10 +71,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                 TextButton(
               onPressed: (){
                 controllers.nextPage(duration: const  Duration(milliseconds: 500), curve: Curves.linear);}, 
-                child: const Text("Next"))
-
-
-
+                child: const Text("Next >"))
 
           ],
         ),

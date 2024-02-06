@@ -20,9 +20,13 @@ class IntroScreen3 extends StatelessWidget {
           children: [
               Center(child: Image.asset("assets/rain.png",height: height*0.3,width: height*0.4, )),
 
-              Text("Realtime Weather",style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 50),),
+  const SizedBox(height: 90,),
 
-              Text("Latest weather updates right into your hands",style: Theme.of(context).textTheme.bodyLarge,)
+      Text("Weather Forecast",style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 35),),
+    const SizedBox(height: 8,),
+     Text("Get upto 7 days weather forecast ",style: Theme.of(context).textTheme.bodyLarge,),
+         Text(" into your hands",style: Theme.of(context).textTheme.bodyLarge,),
+
           ],
         ),
       ),

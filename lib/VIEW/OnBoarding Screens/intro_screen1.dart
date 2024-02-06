@@ -7,7 +7,7 @@ class IntroScreen1 extends StatelessWidget {
   Widget build(BuildContext context) {
   final height = MediaQuery.sizeOf(context).height *1;
    return  Scaffold(
-      backgroundColor: Color(0xff93D9D9),
+      // backgroundColor: Color(0xff93D9D9),
       
       body:Container(
         decoration: const BoxDecoration(
@@ -16,14 +16,24 @@ class IntroScreen1 extends StatelessWidget {
             fit: BoxFit.cover,
           ),
         ),
-        child: Column(mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-              Center(child: Image.asset("assets/weather1.png",height: height*0.3,width: height*0.4, )),
+        child: Center(
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                  Center(child: Image.asset("assets/weather1.png",height: height*0.3,width: height*0.4, )),
+          const SizedBox(height: 90,),
 
-              Text("Realtime Weather",style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 50),),
+      Text("Realtime Weather",style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 35),),
+    const SizedBox(height: 8,),
+     Text("Latest weather updates right ",style: Theme.of(context).textTheme.bodyLarge,),
+         Text(" into your hands",style: Theme.of(context).textTheme.bodyLarge,)
 
-              Text("Latest weather updates right into your hands",style: Theme.of(context).textTheme.bodyLarge,)
-          ],
+              ],
+            ),
+          ),
         ),
       ),
       
