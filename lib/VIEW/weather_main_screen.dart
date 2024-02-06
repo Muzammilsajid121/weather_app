@@ -46,23 +46,36 @@ class _WeatherScreenState extends State<WeatherScreen> {
                     
                     return Column(
                       children: [
-            //Upper Date Time
-             Container(
-              decoration: BoxDecoration(borderRadius: BorderRadius.circular(12), color: Colors.white,),
-               child: Text(
-          function.formatApiDate( weatherApiServices.location['localtime'].toString()),
-           style: Theme.of(context).textTheme.bodyLarge,
-                                  ),
-             ),
-            SizedBox(height: height*0.01,),
-            //Location
-              Container(
-                width: width*0.5,
-              decoration: BoxDecoration(borderRadius: BorderRadius.circular(12), color: Colors.white,),
-               child:Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+
+    //TOP CONTAINER
+     Container(
+      width: width*0.6,
+  decoration: BoxDecoration(borderRadius: BorderRadius.circular(12), color: Color(0x80ECF3FE).withOpacity(0.2),),
+              child: Column(
                 children: [
-            Row(
+       //Big Temperature
+           Text( weatherApiServices.current['temp_c'].toString() +"°",
+       style: Theme.of(context).textTheme.titleMedium!.copyWith(fontSize: 85, color: Colors.white),),
+
+//condition&Icons
+ Row(mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+            Text( weatherApiServices.current['condition']['text'].toString(),
+                    style: Theme.of(context).textTheme.bodyMedium,),
+                    //
+              Image.network(
+                'https:' + weatherApiServices.current['condition']['icon'], height: 50, width:60, ),
+   ],  ),
+
+//CHANCES OF RAIN
+Text( "Chances Of Rain: " + weatherApiServices.forecast['forecastday'][0]['day']['daily_chance_of_rain'].toString(),
+                  style: Theme.of(context).textTheme.bodyLarge,),
+
+
+
+
+//LOCATION
+ Row(mainAxisAlignment: MainAxisAlignment.center,
               children: [
                const  Icon(Icons.pin_drop),
                  Text(
@@ -73,27 +86,16 @@ class _WeatherScreenState extends State<WeatherScreen> {
           ( weatherApiServices.location['country'].toString()),
            style: Theme.of(context).textTheme.bodyLarge,
                                   ),
-              ],
-            )
-                ],
-               )
-             ),
-          
-          //Big Temperature
-           Text( weatherApiServices.current['temp_c'].toString() +"°",
-       style: Theme.of(context).textTheme.titleMedium!.copyWith(fontSize: 85, color: Colors.white),),
-
-         Row(mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-            Text( weatherApiServices.current['condition']['text'].toString(),
-                    style: Theme.of(context).textTheme.bodyMedium,),
-                    //
-              Image.network(
-                'https:' + weatherApiServices.current['condition']['icon'], height: 60, width:60, ),
-              
-              ],
-             ),
-      
+       ], ),
+     //Upper Date Time
+                  Text(
+          function.formatApiDate( weatherApiServices.location['localtime'].toString()),
+           style: Theme.of(context).textTheme.bodyLarge,),
+//
+  ],
+     ),
+     ),
+      const SizedBox(height: 16,) ,  
           // Divider( height: 2, endIndent: 12, color: Colors.black,),
           //Extras
           SingleChildScrollView(
@@ -171,7 +173,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
             ),
           ),
  
-const SizedBox(height: 20,),
+const SizedBox(height: 14,),
 
 Row(mainAxisAlignment: MainAxisAlignment.center,
 
@@ -183,7 +185,7 @@ Row(mainAxisAlignment: MainAxisAlignment.center,
   ],
 ),
 
-const SizedBox(height: 4,),
+const SizedBox(height: 8,),
 
        SizedBox(
                
@@ -196,17 +198,18 @@ const SizedBox(height: 4,),
                       padding: const EdgeInsets.symmetric(horizontal: 6.0),
                       child: Container(
                         width: width * 0.30,
-                        decoration: const BoxDecoration(
-                          color: Color(0xffECF3FE),
-                          borderRadius: BorderRadius.all(Radius.circular(38)),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Color.fromARGB(255, 114, 114, 114),
-                              // Light color
-                              offset: Offset(-1.5, 0),
-                              blurRadius: 8.0,
-                            ),
-                          ],
+                        decoration:  BoxDecoration(
+                          color: const  Color(0x80ECF3FE).withOpacity(0.6), //transparent
+                          borderRadius: const  BorderRadius.all(Radius.circular(38)),
+                          //comment it to make transparent
+                          // boxShadow: [
+                          //   BoxShadow(
+                          //     color: Color.fromARGB(255, 114, 114, 114),
+                          //     // Light color
+                          //     offset: Offset(-1.5, 0),
+                          //     blurRadius: 8.0,
+                          //   ),
+                          // ],
                         ),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
