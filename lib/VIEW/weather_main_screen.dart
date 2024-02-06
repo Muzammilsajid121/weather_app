@@ -49,8 +49,8 @@ class _WeatherScreenState extends State<WeatherScreen> {
 
     //TOP CONTAINER
      Container(
-      width: width*0.6,
-  decoration: BoxDecoration(borderRadius: BorderRadius.circular(12), color: Color(0x80ECF3FE).withOpacity(0.2),),
+      // width: width*0.6,
+  decoration: BoxDecoration(borderRadius: BorderRadius.circular(12), color: Color(0x80ECF3FE).withOpacity(0.5),),
               child: Column(
                 children: [
        //Big Temperature
@@ -70,8 +70,6 @@ class _WeatherScreenState extends State<WeatherScreen> {
 //CHANCES OF RAIN
 Text( "Chances Of Rain: " + weatherApiServices.forecast['forecastday'][0]['day']['daily_chance_of_rain'].toString(),
                   style: Theme.of(context).textTheme.bodyLarge,),
-
-
 
 
 //LOCATION
@@ -95,7 +93,7 @@ Text( "Chances Of Rain: " + weatherApiServices.forecast['forecastday'][0]['day']
   ],
      ),
      ),
-      const SizedBox(height: 16,) ,  
+      const SizedBox(height: 26,) ,  
           // Divider( height: 2, endIndent: 12, color: Colors.black,),
           //Extras
           SingleChildScrollView(
