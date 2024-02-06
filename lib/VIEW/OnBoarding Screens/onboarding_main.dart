@@ -14,7 +14,7 @@ class OnBoardingScreen extends StatefulWidget {
 
 class _OnBoardingScreenState extends State<OnBoardingScreen> {
 
-  PageController Controller = PageController();
+  PageController controllers = PageController();
   bool onLastPage = false;
 
   @override
@@ -24,7 +24,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
         children: [
 
           PageView(
-            controller: Controller,
+            controller: controllers,
             //This tells us on which page we are
             onPageChanged: (index) => setState(() {
               onLastPage = (index==2);
@@ -49,15 +49,15 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
             //Skip
             TextButton(
               onPressed: (){
-                Controller.jumpToPage(2);}, 
+                controllers.jumpToPage(2);}, 
                 child: const Text("Skip")),
 
 
             //Indicators
             SmoothPageIndicator(
-              effect: JumpingDotEffect(
-                verticalOffset: 5, dotColor: Colors.grey.shade400, activeDotColor: Colors.white),
-              controller: Controller, 
+              effect: const JumpingDotEffect(
+                verticalOffset: 5, dotColor: Colors.blue, activeDotColor: Colors.yellow),
+              controller: controllers, 
               count: 3),
 
               //Next Or Finish
@@ -70,7 +70,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
 
                 TextButton(
               onPressed: (){
-                Controller.nextPage(duration:  Duration(milliseconds: 500), curve: Curves.linear);}, 
+                controllers.nextPage(duration: const  Duration(milliseconds: 500), curve: Curves.linear);}, 
                 child: const Text("Next"))
 
 
