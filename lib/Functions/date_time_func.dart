@@ -16,5 +16,18 @@ String formatApiDate(String apiDate) {
   }
 }
 
+ String formatApiDateWithAmPm(String apiDate) {
+    try {
+      final parsedDate = DateFormat('yyyy-MM-dd HH:mm').parse(apiDate);
+      final formattedTime = DateFormat.jm().format(parsedDate); // Use jm to show only time
 
+      return formattedTime;
+    } catch (e) {
+      if (kDebugMode) {
+        print("Error parsing date: $e");
+      }
+      return "Last Update: N/A";
+    }
+  }
 }
+
