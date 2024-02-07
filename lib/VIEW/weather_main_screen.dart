@@ -14,6 +14,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
   //Objects
   WeatherApiServices weatherApiServices = WeatherApiServices();
   final Functions function = Functions();
+  TextEditingController searchController = TextEditingController();
   
 
   //
@@ -36,6 +37,32 @@ class _WeatherScreenState extends State<WeatherScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+//SearchField
+
+Padding(
+  padding: const EdgeInsets.all(4.0),
+  child: SizedBox(height: 35,
+    child: TextFormField(
+      controller: searchController,
+      decoration: InputDecoration(
+        filled: true,
+        fillColor:const  Color(0x80ECF3FE).withOpacity(0.3),
+        suffixIcon:const  Icon(Icons.search, color: Colors.white,),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(12),
+          
+        ),
+        
+        hintText: "Search by Country or Region", hintStyle: Theme.of(context).textTheme.bodyMedium,
+        
+      ),
+    
+    ),
+  ),
+),
+
+const SizedBox(height: 12,),
+
           // Future Builder
               FutureBuilder(
                 future: weatherApiServices.fetchWorldWeatherApi(),
@@ -54,8 +81,8 @@ class _WeatherScreenState extends State<WeatherScreen> {
               child: Column(
                 children: [
        //Big Temperature
-           Text( weatherApiServices.current['temp_c'].toString() +"°",
-       style: Theme.of(context).textTheme.titleMedium!.copyWith(fontSize: 85, color: Colors.white),),
+           Text( weatherApiServices.current['temp_c'].toString() +"°", 
+       style: Theme.of(context).textTheme.titleMedium!.copyWith(fontSize: 110, color: Colors.white, height: 0.8),),
 
 //condition&Icons
  Row(mainAxisAlignment: MainAxisAlignment.center,
@@ -64,14 +91,20 @@ class _WeatherScreenState extends State<WeatherScreen> {
                     style: Theme.of(context).textTheme.bodyMedium,),
                     //
               Image.network(
-                'https:' + weatherApiServices.current['condition']['icon'], height: 50, width:60, ),
+                'https:' + weatherApiServices.current['condition']['icon'], height: 45, width:60, ),
    ],  ),
 
 //CHANCES OF RAIN
-Text( "Chances Of Rain: " + weatherApiServices.forecast['forecastday'][0]['day']['daily_chance_of_rain'].toString(),
-                  style: Theme.of(context).textTheme.bodyLarge,),
+Text( "Max Temperature: " + weatherApiServices.forecast['forecastday'][0]['day']['maxtemp_c'].toString(),
+                  style: Theme.of(context).textTheme.bodyLarge!.copyWith(height: 0.8) , ),
 
 
+
+     // Date Time
+                  Text(
+          function.formatApiDate( weatherApiServices.location['localtime'].toString()),
+           style: Theme.of(context).textTheme.bodyLarge,),
+//
 //LOCATION
  Row(mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -82,13 +115,9 @@ Text( "Chances Of Rain: " + weatherApiServices.forecast['forecastday'][0]['day']
                                   ),
                Text(
           ( weatherApiServices.location['country'].toString()),
-           style: Theme.of(context).textTheme.bodyLarge,
+           style: Theme.of(context).textTheme.bodyLarge ,
                                   ),
        ], ),
-     //Upper Date Time
-                  Text(
-          function.formatApiDate( weatherApiServices.location['localtime'].toString()),
-           style: Theme.of(context).textTheme.bodyLarge,),
 //
   ],
      ),
@@ -122,32 +151,10 @@ Text( "Chances Of Rain: " + weatherApiServices.forecast['forecastday'][0]['day']
                 ),
          const  SizedBox(width: 20,),
 
-                 //Feels Like
+            //SunRise
                   Column(
                   children: [
-                   const  Icon(Icons.wind_power),
-                   Text( weatherApiServices.current['feelslike_c'].toString(),
-                     style: Theme.of(context).textTheme.bodyLarge,),
-               Text("Wind KPH", style: Theme.of(context).textTheme.bodyMedium),
-                  ],
-                ),
-                  const  SizedBox(width: 20,),
-         
-                //Clouds
-                  Column(
-                  children: [
-                   const  Icon(Icons.cloud),
-                   Text( weatherApiServices.current['cloud'].toString(),
-                     style: Theme.of(context).textTheme.bodyLarge,),
-               Text("Cloud", style: Theme.of(context).textTheme.bodyMedium),
-                  ],
-                ),
-         const  SizedBox(width: 20,),
-
-                  //SunRise
-                  Column(
-                  children: [
-                   Image.asset('assets/sunrise.png', height: 35, width: 30,),
+                   Image.asset('assets/sunrise.png', height: 28, width: 30,),
                    Text( 
                    weatherApiServices.forecast['forecastday'][0]['astro']['sunrise'].toString(),
                   style: Theme.of(context).textTheme.bodyLarge,),
@@ -159,13 +166,38 @@ Text( "Chances Of Rain: " + weatherApiServices.forecast['forecastday'][0]['day']
                   //SunSet
                   Column(
                   children: [
-                     Image.asset('assets/sunset.png', height: 35, width: 30,),
+                     Image.asset('assets/sunset.png', height: 28, width: 30,),
                    Text(  weatherApiServices.forecast['forecastday'][0]['astro']['sunrise'].toString(),
                      style: Theme.of(context).textTheme.bodyLarge,),
                Text("Sun Set", style: Theme.of(context).textTheme.bodyMedium),
                   ],
                 ),
-                // const  SizedBox(width: 12,),
+           const  SizedBox(width: 20,),
+             //Clouds
+                  Column(
+                  children: [
+                   const  Icon(Icons.cloud),
+                   Text( weatherApiServices.current['cloud'].toString(),
+                     style: Theme.of(context).textTheme.bodyLarge,),
+               Text("Clouds", style: Theme.of(context).textTheme.bodyMedium),
+                  ],
+                ),
+           const  SizedBox(width: 20,),
+                 //Feels Like
+                  Column(
+                  children: [
+                   const  Icon(Icons.wind_power),
+                   Text( weatherApiServices.current['feelslike_c'].toString(),
+                     style: Theme.of(context).textTheme.bodyLarge,),
+               Text("Wind Kph", style: Theme.of(context).textTheme.bodyMedium),
+                  ],
+                ),
+                  const  SizedBox(width: 20,),
+         
+                
+         const  SizedBox(width: 20,),
+
+                
                    
               ],
             ),
