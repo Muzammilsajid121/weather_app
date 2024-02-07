@@ -7,7 +7,7 @@ class Functions{
 String formatApiDate(String apiDate) {
   try {
     final parsedDate = DateFormat('yyyy-MM-dd HH:mm').parse(apiDate);
-    return " ${DateFormat.yMMMd().add_jm().format(parsedDate)}";
+    return " ${DateFormat.yMMMd().format(parsedDate)}"; // Remove .add_jm()
   } catch (e) {
     if (kDebugMode) {
       print("Error parsing date: $e");
@@ -16,6 +16,8 @@ String formatApiDate(String apiDate) {
   }
 }
 
+
+//WITH AM PM
  String formatApiDateWithAmPm(String apiDate) {
     try {
       final parsedDate = DateFormat('yyyy-MM-dd HH:mm').parse(apiDate);
