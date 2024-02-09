@@ -17,15 +17,18 @@ class IntroScreen3 extends StatelessWidget {
           ),
         ),
         child: Column(mainAxisAlignment: MainAxisAlignment.center,
+        // crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-              Center(child: Image.asset("assets/rain.png",height: height*0.3,width: height*0.4, )),
+              Center(child: Image.asset("assets/cloud.png",height: height*0.3,width: height*0.4, )),
 
   const SizedBox(height: 90,),
 
-      Text("Weather Forecast",style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 35),),
-    const SizedBox(height: 8,),
-     Text("Get upto 7 days weather forecast ",style: Theme.of(context).textTheme.bodyLarge,),
-         Text(" into your hands",style: Theme.of(context).textTheme.bodyLarge,),
+      Text("Weather Forecast ",style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 38,height: 0.9),),
+     
+
+    const SizedBox(height: 16,),
+     Text(" View 24 hours forecast with",style: Theme.of(context).textTheme.bodyLarge,),
+         Text("condition, and icons",style: Theme.of(context).textTheme.bodyLarge,),
 
           ],
         ),

@@ -22,7 +22,7 @@ class IntroScreen2 extends StatelessWidget {
 
        const SizedBox(height: 90,),
 
-      Text("Weather Forecast",style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 35),),
+      Text("Weather Forecast",style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 38,height: 0.9),),
     const SizedBox(height: 8,),
      Text("Get upto 7 days weather forecast ",style: Theme.of(context).textTheme.bodyLarge,),
          Text(" into your hands",style: Theme.of(context).textTheme.bodyLarge,),

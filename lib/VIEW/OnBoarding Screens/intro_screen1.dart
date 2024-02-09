@@ -26,8 +26,8 @@ class IntroScreen1 extends StatelessWidget {
                   Center(child: Image.asset("assets/weather1.png",height: height*0.3,width: height*0.4, )),
           const SizedBox(height: 90,),
 
-      Text("Realtime Weather",style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 35),),
-    const SizedBox(height: 8,),
+      Text("Realtime Weather",style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 38,height: 0.9),),
+    const SizedBox(height: 16,),
      Text("Latest weather updates right ",style: Theme.of(context).textTheme.bodyLarge,),
          Text(" into your hands",style: Theme.of(context).textTheme.bodyLarge,)
 

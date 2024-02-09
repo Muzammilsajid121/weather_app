@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:weather_app/VIEW/OnBoarding%20Screens/intro_screen3.dart';
 import 'package:weather_app/VIEW/OnBoarding%20Screens/onboarding_main.dart';
 import 'package:weather_app/VIEW/splash_screen.dart';
 import 'package:weather_app/VIEW/weather_main_screen.dart';
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
       title: 'Weather App',
       theme: ThemeData(
      
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.greenAccent),
         useMaterial3: true,
         //
           scaffoldBackgroundColor:const Color(0xffC9DDFC),
@@ -52,7 +53,7 @@ class MyApp extends StatelessWidget {
 
         //
       ),
-      home:  (WeatherScreen()),
+      home:  (OnBoardingScreen()),
     );
   }
 }

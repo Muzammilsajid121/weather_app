@@ -16,7 +16,11 @@ class _WeatherScreenState extends State<WeatherScreen> {
   final Functions function = Functions();
   TextEditingController searchController = TextEditingController();
   //
-
+String searchLocation = "karachi";
+void searchFilter(){
+ 
+  searchLocation=searchController.text.trim();
+}
 
 
   //
@@ -45,13 +49,23 @@ Padding(
   padding: const EdgeInsets.all(4.0),
   child: SizedBox(height: 35,
     child: TextFormField(
+      // onChanged: (value){
+      //   setState(() {
+      //     searchLocation= value;
+      //   });
+      // },
       controller: searchController,
       decoration: InputDecoration(
         filled: true,
         fillColor:const  Color(0x80ECF3FE).withOpacity(0.3),
 
         suffixIcon:  IconButton(
-          onPressed: (){},
+          onPressed: (){
+            setState(() {
+              searchFilter();
+            });
+            
+          },
            icon:const  Icon(Icons.search, color: Colors.white,),),
 
         border: OutlineInputBorder(
@@ -71,10 +85,17 @@ const SizedBox(height: 12,),
 
           // Future Builder
               FutureBuilder(
-                future: weatherApiServices.fetchWorldWeatherApi("karachi"),
+
+                //
+                future: weatherApiServices.fetchWorldWeatherApi(searchLocation),
                 builder: (context, snapshot) {
                   if (snapshot.connectionState == ConnectionState.waiting) {
-                    return const Text("Loading");
+
+                    return SizedBox(height: height*0.02,width: width*0.03,
+                      child: const CircularProgressIndicator(
+                        color: Colors.green,strokeWidth: 4,
+                      ),
+                    );
                   } else {
                     
                     return Column(
@@ -135,14 +156,20 @@ Text( "Min Temperature: " + weatherApiServices.forecast['forecastday'][0]['day']
               //  const  Icon(Icons.pin_drop),
              Image.asset("assets/pin.png", height: 18,),
 
-                 Text(
-          ( weatherApiServices.location['name'].toString() + ","),
-           style: Theme.of(context).textTheme.bodyLarge,
-                                  ),
-               Text(
-          ( weatherApiServices.location['country'].toString()),
-           style: Theme.of(context).textTheme.bodyLarge ,
-                                  ),
+                 Flexible(
+                   child: Text(
+                             ( weatherApiServices.location['name'].toString() + ","),
+                              style: Theme.of(context).textTheme.bodyLarge,
+                              overflow:TextOverflow.ellipsis, maxLines: 1 ,
+                                    ),
+                 ),
+               Flexible(
+                 child: Text(
+                           ( weatherApiServices.location['country'].toString()),
+                            style: Theme.of(context).textTheme.bodyLarge ,
+                            overflow:TextOverflow.ellipsis, maxLines: 1 ,
+                                    ),
+               ),
        ], ),
 //
   ],
