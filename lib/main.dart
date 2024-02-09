@@ -26,9 +26,10 @@ class MyApp extends StatelessWidget {
         //TEXT THEMES
         textTheme: TextTheme(
 
-              //display
+          //display
                 displaySmall:
                  GoogleFonts.montserrat(fontSize: 11,fontWeight: FontWeight.w500, color: Colors.black),
+     
 
             //Body Small
             bodySmall:
@@ -37,8 +38,7 @@ class MyApp extends StatelessWidget {
             //Body Medium
             bodyMedium: GoogleFonts.montserrat(
                 fontSize: 16, color: Colors.black, fontWeight: FontWeight.w700),
-            //
-            //Body Large; choosen by theme
+            //Body Large
             bodyLarge: GoogleFonts.aBeeZee(fontSize: 19,  fontWeight: FontWeight.w800, color: Colors.black),
             // //
             titleMedium: GoogleFonts.montserrat(fontSize: 25, color: Colors.black , fontWeight: FontWeight.bold),
