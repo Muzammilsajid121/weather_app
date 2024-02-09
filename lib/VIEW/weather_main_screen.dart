@@ -15,7 +15,9 @@ class _WeatherScreenState extends State<WeatherScreen> {
   WeatherApiServices weatherApiServices = WeatherApiServices();
   final Functions function = Functions();
   TextEditingController searchController = TextEditingController();
-  
+  //
+
+
 
   //
   @override
@@ -47,7 +49,11 @@ Padding(
       decoration: InputDecoration(
         filled: true,
         fillColor:const  Color(0x80ECF3FE).withOpacity(0.3),
-        suffixIcon:const  Icon(Icons.search, color: Colors.white,),
+
+        suffixIcon:  IconButton(
+          onPressed: (){},
+           icon:const  Icon(Icons.search, color: Colors.white,),),
+
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
           
@@ -65,7 +71,7 @@ const SizedBox(height: 12,),
 
           // Future Builder
               FutureBuilder(
-                future: weatherApiServices.fetchWorldWeatherApi(),
+                future: weatherApiServices.fetchWorldWeatherApi("karachi"),
                 builder: (context, snapshot) {
                   if (snapshot.connectionState == ConnectionState.waiting) {
                     return const Text("Loading");
@@ -77,9 +83,23 @@ const SizedBox(height: 12,),
     //TOP CONTAINER
      Container(
       // width: width*0.6,
-  decoration: BoxDecoration(borderRadius: BorderRadius.circular(12), color: Color(0x80ECF3FE).withOpacity(0.5),),
-              child: Column(
+  decoration: BoxDecoration(borderRadius: BorderRadius.circular(12), color:const  Color(0x80ECF3FE).withOpacity(0.5),),
+              child: Column(mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+        
+//TODAY
+
+Row(mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+            Text( "TODAY",
+                    style: Theme.of(context).textTheme.bodyMedium,),
+                    //
+             const  Icon(Icons.today_outlined,size: 18,),
+              // Image.asset("assets/today.png",height: 18,),
+   ],  ),
+ 
+
+
        //Big Temperature
            Text( weatherApiServices.current['temp_c'].toString() +"°", 
        style: Theme.of(context).textTheme.titleMedium!.copyWith(fontSize: 110, color: Colors.white, height: 0.8),),
@@ -94,9 +114,13 @@ const SizedBox(height: 12,),
                 'https:' + weatherApiServices.current['condition']['icon'], height: 45, width:60, ),
    ],  ),
 
-//CHANCES OF RAIN
+//MAX TEMP
 Text( "Max Temperature: " + weatherApiServices.forecast['forecastday'][0]['day']['maxtemp_c'].toString(),
-                  style: Theme.of(context).textTheme.bodyLarge!.copyWith(height: 0.8) , ),
+                  style: Theme.of(context).textTheme.bodyLarge!.copyWith(height: 1.4) , ),
+
+//MAX TEMP
+Text( "Min Temperature: " + weatherApiServices.forecast['forecastday'][0]['day']['mintemp_c'].toString(),
+                  style: Theme.of(context).textTheme.bodyLarge!.copyWith(height: 1) , ),
 
 
 
@@ -108,7 +132,9 @@ Text( "Max Temperature: " + weatherApiServices.forecast['forecastday'][0]['day']
 //LOCATION
  Row(mainAxisAlignment: MainAxisAlignment.center,
               children: [
-               const  Icon(Icons.pin_drop),
+              //  const  Icon(Icons.pin_drop),
+             Image.asset("assets/pin.png", height: 18,),
+
                  Text(
           ( weatherApiServices.location['name'].toString() + ","),
            style: Theme.of(context).textTheme.bodyLarge,

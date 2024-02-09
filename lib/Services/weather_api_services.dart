@@ -14,8 +14,8 @@ class WeatherApiServices{
    Map <String, dynamic> hour= {};
 
 
-  Future<void> fetchWorldWeatherApi() async{
-    final response = await http.get(Uri.parse("http://api.weatherapi.com/v1/forecast.json?key=258f004eb4f44042b54180807241601&q=Karachi&aqi=no"));
+  Future<void> fetchWorldWeatherApi(String locationquery) async{
+    final response = await http.get(Uri.parse("http://api.weatherapi.com/v1/forecast.json?key=258f004eb4f44042b54180807241601&q=$locationquery&aqi=no"));
     
     if(response.statusCode==200){
           if (kDebugMode) {
