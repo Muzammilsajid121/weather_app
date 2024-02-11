@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.greenAccent),
         useMaterial3: true,
         //
-          scaffoldBackgroundColor:const Color(0xffC9DDFC),
+          scaffoldBackgroundColor:Color.fromARGB(255, 253, 254, 255),
        //
         //TEXT THEMES
         textTheme: TextTheme(

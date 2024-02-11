@@ -3,7 +3,7 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:weather_app/VIEW/OnBoarding%20Screens/intro_screen1.dart';
 import 'package:weather_app/VIEW/OnBoarding%20Screens/intro_screen2.dart';
 import 'package:weather_app/VIEW/OnBoarding%20Screens/intro_screen3.dart';
-import 'package:weather_app/VIEW/splash_screen.dart';
+import 'package:weather_app/VIEW/weather_main_screen.dart';
 
 class OnBoardingScreen extends StatefulWidget {
   const OnBoardingScreen({super.key});
@@ -64,7 +64,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
               onLastPage?
                TextButton(
               onPressed: (){
-                Navigator.push(context, (MaterialPageRoute(builder: (context){return const SplashScreen();})));
+                Navigator.push(context, (MaterialPageRoute(builder: (context){return const WeatherScreen();})));
                 }, 
                 child: const Text("Finish")) :
 

@@ -23,7 +23,7 @@ class IntroScreen1 extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                  Center(child: Image.asset("assets/weather1.png",height: height*0.3,width: height*0.4, )),
+                  Center(child: Image.asset("assets/storm.png",height: height*0.3,width: height*0.4, )),
           const SizedBox(height: 90,),
 
       Text("Realtime Weather",style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 38,height: 0.9),),

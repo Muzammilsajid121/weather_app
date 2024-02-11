@@ -18,7 +18,7 @@ class IntroScreen2 extends StatelessWidget {
         ),
         child: Column(mainAxisAlignment: MainAxisAlignment.center,
           children: [
-              Center(child: Image.asset("assets/storm.png",height: height*0.3,width: height*0.4, )),
+              Center(child: Image.asset("assets/weather1.png",height: height*0.3,width: height*0.4, )),
 
        const SizedBox(height: 90,),
 
