@@ -45,7 +45,7 @@ void searchFilter(){
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
 
-           SizedBox(height: height*0.04,),
+           SizedBox(height: height*0.05,),
             //SearchField
             
             Padding(
@@ -100,9 +100,7 @@ void searchFilter(){
 //     ),
 //   );
 // }
-          
                     else {
-                      
                       return Column(
                         children: [
             
@@ -124,7 +122,7 @@ void searchFilter(){
                ],  ),
             
                    //Big Temperature
-             Text( weatherApiServices.current['temp_c'].toString() +"°", 
+             Text( "${weatherApiServices.current['temp_c']}°", 
                    style: Theme.of(context).textTheme.titleMedium!.copyWith(fontSize: 110, color: Colors.white, height: 0.8),),
             
             //condition&Icons
@@ -134,15 +132,16 @@ void searchFilter(){
                       style: Theme.of(context).textTheme.bodyMedium,),
                       //
                 Image.network(
+                  // ignore: prefer_interpolation_to_compose_strings
                   'https:' + weatherApiServices.current['condition']['icon'], height: 45, width:60, ),
                ],  ),
             
             //MAX TEMP
-            Text( "Max Temperature: " + weatherApiServices.forecast['forecastday'][0]['day']['maxtemp_c'].toString(),
+            Text( "Max Temperature: ${weatherApiServices.forecast['forecastday'][0]['day']['maxtemp_c']}",
                     style: Theme.of(context).textTheme.bodyLarge!.copyWith(height: 1.4) , ),
             
             //MAX TEMP
-            Text( "Min Temperature: " + weatherApiServices.forecast['forecastday'][0]['day']['mintemp_c'].toString(),
+            Text( "Min Temperature: ${weatherApiServices.forecast['forecastday'][0]['day']['mintemp_c']}",
                     style: Theme.of(context).textTheme.bodyLarge!.copyWith(height: 1) , ),
             
             
@@ -160,7 +159,7 @@ void searchFilter(){
             
                    Flexible(
                      child: Text(
-                               ( weatherApiServices.location['name'].toString() + ","),
+                               ( "${weatherApiServices.location['name']},"),
                                 style: Theme.of(context).textTheme.bodyLarge,
                                 overflow:TextOverflow.ellipsis, maxLines: 1 ,
                                       ),
@@ -177,7 +176,7 @@ void searchFilter(){
               ],
                  ),
                  ),
-                  const SizedBox(height: 26,) ,  
+                  const SizedBox(height: 28,) ,  
             // Divider( height: 2, endIndent: 12, color: Colors.black,),
             //Extras
             SingleChildScrollView(
@@ -193,7 +192,7 @@ void searchFilter(){
                  Text("Humidity", style: Theme.of(context).textTheme.bodyMedium),
                     ],
                   ),
-                 const  SizedBox(width: 20,),
+                 const  SizedBox(width: 22,),
               
                   //Feels Like
                     Column(
@@ -204,7 +203,7 @@ void searchFilter(){
                  Text("Feels Like", style: Theme.of(context).textTheme.bodyMedium),
                     ],
                   ),
-                     const  SizedBox(width: 20,),
+                     const  SizedBox(width: 22,),
             
               //SunRise
                     Column(
@@ -216,7 +215,7 @@ void searchFilter(){
                  Text("Sun Rise", style: Theme.of(context).textTheme.bodyMedium),
                     ],
                   ),
-                  const  SizedBox(width: 20,),
+                  const  SizedBox(width: 22,),
              
                     //SunSet
                     Column(
@@ -227,7 +226,7 @@ void searchFilter(){
                  Text("Sun Set", style: Theme.of(context).textTheme.bodyMedium),
                     ],
                   ),
-             const  SizedBox(width: 20,),
+             const  SizedBox(width: 22,),
                //Clouds
                     Column(
                     children: [
@@ -237,7 +236,7 @@ void searchFilter(){
                  Text("Clouds", style: Theme.of(context).textTheme.bodyMedium),
                     ],
                   ),
-             const  SizedBox(width: 20,),
+             const  SizedBox(width: 22,),
                    //Feels Like
                     Column(
                     children: [
@@ -247,10 +246,10 @@ void searchFilter(){
                  Text("Wind Kph", style: Theme.of(context).textTheme.bodyMedium),
                     ],
                   ),
-                    const  SizedBox(width: 20,),
+                    // const  SizedBox(width: 22,),
                      
                   
-                     const  SizedBox(width: 20,),
+                    //  const  SizedBox(width: 20,),
             
                   
                      
@@ -270,7 +269,7 @@ void searchFilter(){
               ],
             ),
             
-            const SizedBox(height: 8,),
+            const SizedBox(height: 10,),
             
                    SizedBox(
                  
@@ -286,15 +285,7 @@ void searchFilter(){
                           decoration:  BoxDecoration(
                             color: const  Color(0x80ECF3FE).withOpacity(0.6), //transparent
                             borderRadius: const  BorderRadius.all(Radius.circular(38)),
-                            //comment it to make transparent
-                            // boxShadow: [
-                            //   BoxShadow(
-                            //     color: Color.fromARGB(255, 114, 114, 114),
-                            //     // Light color
-                            //     offset: Offset(-1.5, 0),
-                            //     blurRadius: 8.0,
-                            //   ),
-                            // ],
+                            
                           ),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -303,13 +294,14 @@ void searchFilter(){
             
             //Hourly Image
              Image.network(
+            // ignore: prefer_interpolation_to_compose_strings
             'https:' + weatherApiServices.forecast['forecastday'][0]['hour'][index]['condition']['icon'],
              height: 50, width:50, ),
             
              //Hourly Temperature          
             Text(
               weatherApiServices.forecast['forecastday'].isNotEmpty
-                  ? weatherApiServices.forecast['forecastday'][0]['hour'][index]['temp_c'].toString() +"°"
+                  ? "${weatherApiServices.forecast['forecastday'][0]['hour'][index]['temp_c']}°"
                   : 'N/A',
              style: Theme.of(context).textTheme.bodyLarge,),
                      

@@ -7,7 +7,7 @@ class IntroScreen2 extends StatelessWidget {
   Widget build(BuildContext context) {
   final height = MediaQuery.sizeOf(context).height *1;
    return  Scaffold(
-      backgroundColor: Color(0xff93D9D9),
+      backgroundColor: const  Color(0xff93D9D9),
       
       body:Container(
         decoration: const BoxDecoration(
@@ -22,10 +22,10 @@ class IntroScreen2 extends StatelessWidget {
 
        const SizedBox(height: 90,),
 
-      Text("Weather Forecast",style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 38,height: 0.9),),
+      Text("Search Result",style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 38,height: 0.9),),
     const SizedBox(height: 8,),
-     Text("Get upto 7 days weather forecast ",style: Theme.of(context).textTheme.bodyLarge,),
-         Text(" into your hands",style: Theme.of(context).textTheme.bodyLarge,),
+     Text("Get search results with ",style: Theme.of(context).textTheme.bodyLarge,),
+         Text("city, country, latitude & longitude",style: Theme.of(context).textTheme.bodyLarge,),
 
           ],
         ),
