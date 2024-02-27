@@ -26,11 +26,11 @@
 
 ## Screenshots
 
-<img src="projectphotos/1.jpg" height="600px">                             <img src="projectphotos/2.jpg" height="600px">
+<img src="projectphotos/1.png" height="600px">                             <img src="projectphotos/2.png" height="600px">
 
-<img src="projectphotos/3.jpg" height="600px">                              <img src="projectphotos/4.jpg" height="600px">
+<img src="projectphotos/3.png" height="600px">                              <img src="projectphotos/4.png" height="600px">
 
-<img src="projectphotos/5.jpg" height="600px">                              <img src="projectphotos/6.jpg" height="600px">
+<img src="projectphotos/5.png" height="600px">                              <img src="projectphotos/6.png" height="600px">
 
 
 ## How to Use
