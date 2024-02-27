@@ -1,18 +1,28 @@
-# Flutter Currency Converter App       <img src="projectphotos/logo.png" alt="BMI Calculator App Logo" width="40" height="40">
+# Flutter Weather App       <img src="projectphotos/logo.png" alt="BMI Calculator App Logo" width="40" height="40">
 
 
 
 
 ## Overview
-
-Welcome to the Calculator App, a powerful tool to calculate your Body Mass Index(BMI) at your fingertips. This Flutter-based mobile application allows users to effortlessly calculate their BMI by input their weight and height.
+ 
+ Dynamic weather app built with Flutter! 🚀 Offering real-time weather updates, intuitive UI, and a seamless user experience, this app brings accurate forecasts right to your fingertips.
 
 ## Features
 
-- **User-Friendly Interface:** Attractive, light weight and super fast.
-- **User-Friendly Experience:** The app features an intuitive and user-friendly experience, making it easy for users to navigate and input their weight and height effortlessly..
-- **Accurate BMI Calculation:** The Calculator App utilizes precise BMI calculation algorithms, ensuring accurate results based on user-provided weight and height information.
-- **Images:** Beautiful animations and images to understand user more about BMI.
+🌡️ Current temperature, max and min forecasts
+
+🌤️ Hourly and daily weather updates
+
+🌏 Global location search
+
+📅 Date and time functionality
+
+🌅 Sunrise and sunset information
+
+🌬️ Wind speed and humidity details
+
+📍 Sleek design with user-friendly interface
+
 
 ## Screenshots
 
